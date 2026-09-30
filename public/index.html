@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Real-Time Order Tracker</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="container">
+
+    <h1>📦 Real-Time Order Tracker</h1>
+
+    <p class="subtitle">
+      REST API + Socket.IO + JSON-RPC + SSE
+    </p>
+
+
+    <!-- ============================= -->
+    <!-- ORDERS -->
+    <!-- ============================= -->
+
+    <section>
+
+      <h2>📋 Orders</h2>
+
+      <button onclick="loadOrders()">
+        Load Orders
+      </button>
+
+      <div id="orders"></div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- STATUS UPDATE -->
+    <!-- ============================= -->
+
+    <section>
+
+      <h2>🔄 Update Order Status</h2>
+
+
+      <input
+        id="orderId"
+        value="ORD-1001"
+        placeholder="ORD-1001"
+      >
+
+
+      <select id="status">
+
+        <option value="Processing">
+          Processing
+        </option>
+
+        <option value="Shipped">
+          Shipped
+        </option>
+
+        <option value="Out for Delivery">
+          Out for Delivery
+        </option>
+
+        <option value="Delivered">
+          Delivered
+        </option>
+
+        <option value="Cancelled">
+          Cancelled
+        </option>
+
+      </select>
+
+
+      <button onclick="updateStatus()">
+        Update Status
+      </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- JSON-RPC -->
+    <!-- ============================= -->
+
+    <section>
+
+      <h2>⚙️ JSON-RPC</h2>
+
+
+      <input
+        id="cancelOrderId"
+        value="ORD-1001"
+        placeholder="ORD-1001"
+      >
+
+
+      <button onclick="cancelOrder()">
+        Cancel Order
+      </button>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- SSE -->
+    <!-- ============================= -->
+
+    <section>
+
+      <h2>📡 Live Server Events</h2>
+
+
+      <div id="events">
+
+        Waiting for live events...
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CHAT -->
+    <!-- ============================= -->
+
+    <section>
+
+      <h2>💬 Live Support Chat</h2>
+
+
+      <input
+        id="chatOrderId"
+        value="ORD-1001"
+        placeholder="Order ID"
+      >
+
+
+      <input
+        id="sender"
+        value="Customer"
+        placeholder="Your name"
+      >
+
+
+      <input
+        id="message"
+        placeholder="Type your message..."
+      >
+
+
+      <button onclick="sendMessage()">
+        Send Message
+      </button>
+
+
+      <div id="chat"></div>
+
+    </section>
+
+  </div>
+
+
+  <!-- Socket.IO -->
+
+  <script src="/socket.io/socket.io.js"></script>
+
+
+  <!-- Application JavaScript -->
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
